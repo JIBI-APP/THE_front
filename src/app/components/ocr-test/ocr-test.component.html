@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="upload-section">
+      <h2>Upload Image</h2>
+      <input type="file" (change)="onFileChange($event)" class="upload-input" />
+      <button (click)="recognizeText()" class="submit-button">Submit</button>
+      <img *ngIf="selectedImage" [src]="selectedImage" alt="Selected Image" class="preview-image" />
+    </div>
+    <div class="info-section">
+      <h2>Extracted Information</h2>
+      <div class="text-output">
+        <p *ngIf="idNumber"><strong>ID Number:</strong> {{ idNumber }}</p>
+        <p *ngIf="firstName"><strong>First Name:</strong> {{ firstName }}</p>
+        <p *ngIf="lastName"><strong>Last Name:</strong> {{ lastName }}</p>
+        <p *ngIf="dateOfBirth"><strong>Date of Birth:</strong> {{ dateOfBirth }}</p>
+        <p *ngIf="dateOfExpiration"><strong>Date of Expiration:</strong> {{ dateOfExpiration }}</p>
+        <p *ngIf="!ocrResult && selectedImage" class="processing-text">Processing...</p>
+      </div>
+    </div>
+    <div class="ocr-section">
+      <h2>Raw OCR Result</h2>
+      <div class="text-output">
+        <pre *ngIf="ocrResult" class="ocr-output">{{ ocrResult }}</pre>
+      </div>
+    </div>
+</div>
