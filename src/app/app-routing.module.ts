@@ -13,6 +13,7 @@ import { ClientListComponent } from './components/agent/client-list/client-list.
 import { AddAgentComponent } from './components/admin/add-agent/add-agent.component';
 import { AgentListComponent } from './components/admin/agent-list/agent-list.component';
 import { BillSelectionComponent } from './payment/bill-selection/bill-selection.component';
+import { AgencyListComponent } from './components/admin/agency-list/agency-list.component';
 
 const routes: Routes = [
   { path: '', component: AboutComponent },
@@ -30,7 +31,8 @@ const routes: Routes = [
   { path: 'clients', component: ClientListComponent },
   { path: 'add-agent', component: AddAgentComponent },
   {path : 'payment', component: BillSelectionComponent},
-  { path: 'agent', component: AgentListComponent },
+  { path: 'agents', component: AgentListComponent },
+  { path: 'agencies', component: AgencyListComponent}
   // { path: 'profil', component: ProfilComponent },
   // { path: 'depot', component: DepotComponent },
   // { path: 'payer-factures', component: PayerFacturesComponent },

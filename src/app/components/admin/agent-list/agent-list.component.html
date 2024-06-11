@@ -1,1 +1,65 @@
-<p>agent-list works!</p>
+<div class="cc mt-5">
+    <div class="d-flex  mb-3">
+    <div>
+        <button mat-raised-button color="accent" class="mb-3 " routerLink="/add-agent">Add an Agent</button>
+    </div>
+    <div style="margin-left: 950px;">
+        <button mat-raised-button color="accent" class="mb-2 " (click)="goBack()">Go Back</button>
+    </div>
+</div>
+
+<h2 class="align-self-center">Agents List</h2>
+    <table mat-table [dataSource]="agents" class="mat-elevation-z8 table table-striped">
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef>Last Name</th>
+        <td mat-cell *matCellDef="let agent">{{ agent.lastName }}</td>
+      </ng-container>
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef>First Name</th>
+        <td mat-cell *matCellDef="let agent">{{ agent.firstName }}</td>
+      </ng-container>
+      <ng-container matColumnDef="idType">
+        <th mat-header-cell *matHeaderCellDef>Identity Piece</th>
+        <td mat-cell *matCellDef="let agent">{{ agent.idType }}</td>
+      </ng-container>
+      <ng-container matColumnDef="idNumber">
+        <th mat-header-cell *matHeaderCellDef>ID Number</th>
+        <td mat-cell *matCellDef="let agent">{{ agent.idNumber }}</td>
+      </ng-container>
+      <ng-container matColumnDef="birthDate">
+        <th mat-header-cell *matHeaderCellDef>DOB</th>
+        <td mat-cell *matCellDef="let agent">{{ agent.birthDate }}</td>
+      </ng-container>
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef>Adresse</th>
+        <td mat-cell *matCellDef="let agent">{{ agent.address }}</td>
+      </ng-container>
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>Email</th>
+        <td mat-cell *matCellDef="let agent">{{ agent.email }}</td>
+      </ng-container>
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef>Phone</th>
+        <td mat-cell *matCellDef="let agent">{{ agent.phone }}</td>
+      </ng-container>
+      
+      <ng-container matColumnDef="patentNumber">
+        <th mat-header-cell *matHeaderCellDef>patente Number</th>
+        <td mat-cell *matCellDef="let agent">{{ agent.patentNumber }}</td>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let agent" style="white-space: nowrap;">
+            <button mat-icon-button color="primary" style="display: inline-block;" (click)="editAgent(agent)">
+                <fa-icon [icon]="faEdit"></fa-icon>
+            </button>
+            <button mat-icon-button color="warn" style="display: inline-block;" (click)="deleteAgent(agent)">
+            <fa-icon [icon]="faTrashAlt"></fa-icon>
+            </button>
+        </td>
+    </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

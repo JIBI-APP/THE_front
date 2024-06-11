@@ -1,1 +1,57 @@
-<p>add-agent works!</p>
+<form [formGroup]="backoffice" (ngSubmit)="onSubmit()">
+  <div class="card">
+    <div class="card-title">Personal Information</div>
+    <button mat-raised-button color="accent" class="mt-2 btn" (click)="goBack()">Go Back</button>
+    <div class="card-content">
+      <div class="row">
+        <div class="form-field">
+          <input type="text" placeholder="Name" formControlName="nom" required>
+        </div>
+        <div class="form-field">
+          <input type="text" placeholder="First Name" formControlName="prenom" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-field">
+          <input type="text" placeholder="ID Number" formControlName="numPieceIdentite" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-field">
+          <input type="date" placeholder="Date of Birth" formControlName="dateNaissance" required>
+        </div>
+        <div class="form-field">
+          <input type="text" placeholder="Address" formControlName="adresse" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-field">
+          <input type="email" placeholder="Email" formControlName="email" required>
+        </div>
+        <div class="form-field">
+          <input type="email" placeholder="Confirm Email" formControlName="confirmEmail" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-field">
+          <input type="tel" placeholder="Phone Number" formControlName="telephone" required>
+        </div>
+        <div class="form-field">
+          <input type="text" placeholder="Patent Number" formControlName="numPattente" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-field">
+          <input type="file" placeholder="ID Image (front)" formControlName="pieceIdentiteFaceOne" (change)="onFileSelected($event, 'pieceIdentiteFaceOne')" required>
+        </div>
+        <div class="form-field">
+          <input type="file" placeholder="ID Image (back)" formControlName="pieceIdentiteFaceTwo" (change)="onFileSelected($event, 'pieceIdentiteFaceTwo')" required>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="actions">
+    <button class="bt" type="submit">Add</button>
+    <button class="bt" type="button" (click)="onCancel()">Cancel</button>
+  </div>
+</form>

@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 import { MatCardModule } from '@angular/material/card';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
@@ -14,7 +15,7 @@ import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faExchangeAlt } from '@fortawesome/free-solid-svg-icons';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
-import { faMoneyBill } from '@fortawesome/free-solid-svg-icons';
+import { faMoneyBill,faTrashAlt, faEdit  } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -93,6 +94,6 @@ import { HeatmapComponent } from './components/admin/Charts/heatmap/heatmap.comp
 })
 export class AppModule { 
   constructor(library: FaIconLibrary) {
-    library.addIcons(faExchangeAlt, faUserCircle,  faCog, faMoneyBill);
+    library.addIcons(faExchangeAlt, faUserCircle,  faCog, faMoneyBill, faTrashAlt, faEdit);
   }
 }

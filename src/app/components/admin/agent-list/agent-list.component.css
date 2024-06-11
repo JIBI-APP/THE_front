@@ -1,0 +1,31 @@
+.container {
+    position: relative;
+}
+
+.cc {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.bt {
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+    top: 0;
+    margin-left: 10px; /* Reduced margin-left value */
+}
+
+.bt:hover {
+    border: 2px solid #cf408f;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.button-cell {
+    display: flex; /* Added display: flex; */
+    align-items: center;
+}
