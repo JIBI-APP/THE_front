@@ -13,11 +13,11 @@ export class LoginComponent {
   errorMessage: string = '';
 
   constructor(private authService: AuthService, private router: Router) {}
-
   login() {
+    // console.log('Login button clicked');
     this.authService.login(this.username, this.password).subscribe({
       next: (response) => {
-        // Handle the response, store token, navigate based on role
+        console.log('Login successful:', response);
         this.authService.setToken(response.token);
         switch(response.role) {
           case 'ADMIN':
@@ -34,6 +34,7 @@ export class LoginComponent {
         }
       },
       error: (err) => {
+        console.error('Login failed:', err);
         this.errorMessage = 'Incorrect username or password';
       }
     });

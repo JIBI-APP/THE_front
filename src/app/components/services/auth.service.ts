@@ -9,7 +9,7 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:8080/api/auth/login'; // Update this URL to match your backend endpoint
+  private apiUrl = 'https://jibi-api.onrender.com/api/auth/login'; // Update this URL to match your backend endpoint
 
   constructor(private http: HttpClient) {}
 
