@@ -46,8 +46,7 @@
                   "maximumWarning": "100kb",
                   "maximumError": "200kb"
                 }
-              ],
-              "outputHashing": "all"
+              ]
             },
             "development": {
               "buildOptimizer": true,
