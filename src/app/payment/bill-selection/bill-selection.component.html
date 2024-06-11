@@ -1,46 +1,50 @@
 <div class="container p-4 my-4 shadow-lg rounded-5">
-    <h1 class="mb-4">Bill Selection</h1>
-  
-    <!-- Category Filter -->
-    <div class="mb-4">
-      <label for="categoryFilter" class="form-label">Filter by Category</label>
-      <select id="categoryFilter" class="form-select" (change)="onCategoryFilter($event)">
-        <option value="">All categories</option>
-        <option value="Bill">Bill</option>
-        <option value="Recharge">Recharge</option>
-        <option value="Donation">Donation</option>
-      </select>
-    </div>
-  
-    <!-- Creditors List -->
-    <div *ngIf="filteredCreditors.length > 0; else noCreditors">
-      <h2 class="mb-3">Creditors</h2>
-      <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div *ngFor="let creditor of filteredCreditors" class="col" (click)="onSelectCreditor(creditor)">
-          <div class="card h-100">
-            <img [src]="creditor.image" class="card-img-top" alt="Creditor Image">
-            <div class="card-body">
-              <h5 class="card-title">{{ creditor.title }}</h5>
-              <ul class="list-group list-group-flush">
-                <li *ngFor="let billType of creditor.billTypes" class="list-group-item">{{ billType }}</li>
-              </ul>
-            </div>
+  <h1 class="mb-4">Bill Selection</h1>
+
+  <!-- Category Filter -->
+  <div class="mb-4">
+    <label for="categoryFilter" class="form-label">Filter by Category</label>
+    <select id="categoryFilter" class="form-select" (change)="onCategoryFilter($event)">
+      <option value="">All categories</option>
+      <option value="Bill">Bill</option>
+      <option value="Recharge">Recharge</option>
+      <option value="Donation">Donation</option>
+    </select>
+  </div>
+
+  <!-- Creditors List -->
+  <div *ngIf="filteredCreditors.length > 0; else noCreditors">
+    <h2 class="mb-3">Creditors</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div *ngFor="let creditor of filteredCreditors" class="col" (click)="onSelectCreditor(creditor)">
+        <div class="card h-100">
+          <img [src]="creditor.image" class="card-img-top" alt="Creditor Image">
+          <div class="card-body">
+            <h5 class="card-title">{{ creditor.title }}</h5>
+            <ul class="list-group list-group-flush">
+              <li *ngFor="let billType of creditor.billTypes" class="list-group-item">{{ billType }}</li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
-  
-    <ng-template #noCreditors>
-      <div class="alert alert-warning" role="alert">
-        No Creditors Exist for {{category}}!
-      </div>
-    </ng-template>
-  
-    <div *ngIf="selectedCreditor" class="mt-5">
-      <h2>Selected Creditor: {{ selectedCreditor.title }}</h2>
-      <h3>Selected Bill Types:</h3>
-      <ul class="list-group">
-        <li *ngFor="let billType of selectedCreditor.billTypes" class="list-group-item">{{ billType }}</li>
-      </ul>
-    </div>
   </div>
+
+  <ng-template #noCreditors>
+    <div class="alert alert-warning" role="alert">
+      No Creditors Exist for {{category}}!
+    </div>
+  </ng-template>
+
+  <div *ngIf="selectedCreditor" class="mt-5">
+    <h2>Selected Creditor: {{ selectedCreditor.title }}</h2>
+    <h3>Selected Bill Types:</h3>
+    <ul class="list-group">
+      <li *ngFor="let billType of selectedCreditor.billTypes" class="list-group-item">{{ billType }}</li>
+    </ul>
+  </div>
+    <!-- Payment Form Button -->
+    <div class="mt-5">
+      <button class="btn btn-primary" routerLink="/payment-form">Go to Payment Form</button>
+    </div>
+</div>

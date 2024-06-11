@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
 export interface Agence {
   nom: string;
   description: string;
@@ -18,7 +17,7 @@ export class AgencyService {
   constructor(private http: HttpClient) {}
 
   getAgences(): Observable<Agence[]> {
-    return this.http.get<Agence[]>(`${this.baseUrl}/agences`);
+    return this.http.get<any>(`${this.baseUrl}/agences`);
   }
 
   addAgence(agence: Agence): Observable<Agence> {

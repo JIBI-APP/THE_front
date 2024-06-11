@@ -14,24 +14,27 @@ import { AddAgentComponent } from './components/admin/add-agent/add-agent.compon
 import { AgentListComponent } from './components/admin/agent-list/agent-list.component';
 import { BillSelectionComponent } from './payment/bill-selection/bill-selection.component';
 import { AgencyListComponent } from './components/admin/agency-list/agency-list.component';
+import { AddAgencyComponent } from './components/admin/add-agency/add-agency.component';
+import { PaymentFormComponent } from './payment/payment-form/payment-form.component';
+import { ConfirmepayeComponent } from './payment/confirmepaye/confirmepaye.component';
 
 const routes: Routes = [
   { path: '', component: AboutComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'login', component: LoginComponent},
-  { path: 'agent', component: AgentComponent },
   {path:'admin/dashboard',component:DashboardComponent},
   { path: 'ocr-test', component: OcrTestComponent },
-  { path: 'admin', component: AdminComponent },
-  { path: 'login', component: LoginComponent},
   { path: 'agent', component: AgentComponent },
   { path: 'client', component: ClientComponent},
   { path: 'change-password', component: ChangepasswordComponent },
   { path: 'add-client', component: AddClientComponent },
+  {path: 'add-agency', component: AddAgencyComponent},
   { path: 'clients', component: ClientListComponent },
   { path: 'add-agent', component: AddAgentComponent },
   {path : 'payment', component: BillSelectionComponent},
+  {path:'payment-form', component:PaymentFormComponent},
   { path: 'agents', component: AgentListComponent },
+  {path:'confirmepaye',component:ConfirmepayeComponent},
   { path: 'agencies', component: AgencyListComponent}
   // { path: 'profil', component: ProfilComponent },
   // { path: 'depot', component: DepotComponent },

@@ -1,7 +1,5 @@
-
-
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
@@ -9,29 +7,28 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'https://jibi-api.onrender.com/api/auth/login'; // Update this URL to match your backend endpoint
+  private apiUrl = 'https://jibi-api.onrender.com/api/auth';
+  private userRole: string | null = null;
+  private firstLogin: boolean = false;
 
   constructor(private http: HttpClient) {}
 
   login(username: string, password: string): Observable<any> {
-    return this.http.post<any>(this.apiUrl, { username, password }).pipe(
-      tap(response => {
-        this.setToken(response.token);
+    return this.http.post(`${this.apiUrl}/login`, { username, password }).pipe(
+      tap((response: any) => {
         this.setRole(response.role);
+        this.setToken(response.token);
       })
     );
   }
 
-  setToken(token: string) {
-    localStorage.setItem('authToken', token);
-  }
-
-  getToken() {
-    return localStorage.getItem('authToken');
-  }
-
-  setRole(role: string) {
-    localStorage.setItem('userRole', role);
+  logout(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/logout`).pipe(
+      tap(() => {
+        localStorage.removeItem('userRole');
+        this.userRole = null;
+      })
+    );
   }
 
   getRole(): string | null {
@@ -39,74 +36,40 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    return !!this.getToken();
+    return this.userRole !== null;
   }
 
   isLoggedOut(): boolean {
-    return !this.isLoggedIn();
+    return this.userRole === null;
   }
 
   isAdmin(): boolean {
-    return this.getRole() === 'ADMIN';
+    return this.userRole === 'ADMIN';
   }
 
   isAgent(): boolean {
-    return this.getRole() === 'AGENT';
+    return this.userRole === 'AGENT';
   }
 
   isClient(): boolean {
-    return this.getRole() === 'CLIENT';
+    return this.userRole === 'CLIENT';
   }
 
-  logout() {
-    localStorage.removeItem('authToken');
-    localStorage.removeItem('userRole');
+  isFirstLogin(): boolean {
+    return JSON.parse(localStorage.getItem('firstLogin') || 'false');
   }
 
-  // You can add more methods for logout, token validation, etc.
+  completeFirstLogin() {
+    this.firstLogin = false;
+    localStorage.setItem('firstLogin', 'false');
+  }
+
+  setToken(token: string): void {
+    localStorage.setItem('authToken', token);
+  }
+
+  setRole(role: string): void {
+    this.userRole = role;
+    localStorage.setItem('userRole', role);
+  }
 }
-
-
-
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class AuthService {
-//   private userRole: string | null = null;
-
-//   constructor() { }
-
-//   login(role: string) {
-//     this.userRole = role;
-//     localStorage.setItem('userRole', role);
-//   }
-
-//   logout() {
-//     this.userRole = null;
-//     localStorage.removeItem('userRole');
-//   }
-
-//   getRole(): string | null {
-//     return localStorage.getItem('userRole');
-//   }
-
-//   isLoggedIn(): boolean {
-//     return this.userRole !== null;
-//   }
-
-//   isLoggedOut(): boolean {
-//     return this.userRole === null;
-//   }
-
-//   isAdmin(): boolean {
-//     return this.userRole === 'admin';
-//   }
-
-//   isAgent(): boolean {
-//     return this.userRole === 'agent';
-//   }
-
-//   isClient(): boolean {
-//     return this.userRole === 'client';
-//   }
-// }

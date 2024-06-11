@@ -1,20 +1,47 @@
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AgencyService, Agence } from '../../components/services/agency.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-change-password',
-  templateUrl: './change-password.component.html',
-  styleUrls: ['./change-password.component.css']
+  selector: 'app-add-agence',
+  templateUrl: './add-agence.component.html',
+  styleUrls: ['./add-agence.component.css']
 })
-export class ChangePasswordComponent {
+export class AddAgenceComponent {
+  backoffice1!: FormGroup;
 
-  constructor() { }
-
-  onSubmit(form: NgForm) {
-    const phoneNumber = form.value.phoneNumber;
-    const newPassword = form.value.newPassword;
-    // Here you can call a service to change the password
-    console.log(phoneNumber, newPassword);
+  constructor(private fb: FormBuilder, private agenceService: AgencyService, private router: Router) {
+    this.backoffice1 = this.fb.group({
+      nom: ['', Validators.required],
+      description: ['', Validators.required],
+      image: [null, Validators.required]
+    });
   }
 
+  onFileSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length) {
+      const file = input.files[0];
+      this.backoffice1.patchValue({ image: file });
+    }
+  }
+
+  onSubmit() {
+    if (this.backoffice1.valid) {
+      const newAgence: Agence = this.backoffice1.value;
+      this.agenceService.addAgence(newAgence).subscribe(() => {
+        alert('Agence ajoutée avec succès');
+        this.router.navigate(['/']);
+      });
+    }
+  }
+
+  onCancel() {
+    this.backoffice1.reset();
+  }
+
+  goBack() {
+    this.router.navigate(['/agences']);
+  }
 }

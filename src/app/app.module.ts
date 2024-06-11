@@ -40,11 +40,13 @@ import { ClientListComponent } from './components/agent/client-list/client-list.
 import { HistoryComponent } from './components/client/components/history/history.component';
 import { SoldeComponent } from './components/client/components/solde/solde.component';
 import { BillSelectionComponent } from './payment/bill-selection/bill-selection.component';
-import { ChangePasswordComponent } from './auth/change-password/change-password.component';
+// import { ChangePasswordComponent } from './auth/change-password/change-password.component';
 import { PieChartComponent } from './components/admin/Charts/pie-chart/pie-chart.component';
 import { BarChartComponent } from './components/admin/Charts/bar-chart/bar-chart.component';
 import { LineChartComponent } from './components/admin/Charts/line-chart/line-chart.component';
 import { HeatmapComponent } from './components/admin/Charts/heatmap/heatmap.component';
+import { PaymentFormComponent } from './payment/payment-form/payment-form.component';
+import{ConfirmepayeComponent} from './payment/confirmepaye/confirmepaye.component';
 
 
 
@@ -69,11 +71,14 @@ import { HeatmapComponent } from './components/admin/Charts/heatmap/heatmap.comp
     HistoryComponent,
     SoldeComponent,
     BillSelectionComponent,
-    ChangePasswordComponent,
+    // ChangePasswordComponent,
     PieChartComponent,
     BarChartComponent,
     LineChartComponent,
     HeatmapComponent,
+    PaymentFormComponent,
+    ConfirmepayeComponent,
+    ConfirmepayeComponent,
   ],
   imports: [
     BrowserModule,

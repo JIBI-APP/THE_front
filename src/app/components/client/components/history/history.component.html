@@ -14,8 +14,8 @@
       <tbody>
         <tr *ngFor="let transaction of transactions">
           <td>{{ transaction.id }}</td>
-          <td>{{ transaction.cridetor }}</td>
-          <td>{{ transaction.amount | currency: 'DH' }}</td>
+          <td>{{ transaction.creditor }}</td>
+          <td>{{ transaction.amount }}</td>
           <td>{{ transaction.date }}</td>
         </tr>
       </tbody>

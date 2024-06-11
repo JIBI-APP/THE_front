@@ -1,41 +1,16 @@
-
 <body class="container-8">
-
-    <section  class="menu ml-auto col-3 left-side">
-
-
-        <!-- <a routerLink="/account">
-                <div class="menu-element">
-                    <fa-icon icon="user-circle"></fa-icon>
-                    <span>Account</span>
-                </div>
-
-        </a> -->
-
+    <section class="menu ml-auto col-3 left-side">
         <a routerLink="/payment">
             <div class="menu-element">
                 <fa-icon [icon]="['fas', 'money-bill']"></fa-icon>
                 <span>Recharge & Bills</span>
             </div>
-        </a>
-
-        <a routerLink="/settings">
-            <div class="menu-element">
-                <fa-icon icon="cog"></fa-icon>
-                <span>Settings</span>
-            </div>
-        </a>
-            
+        </a>               
+    </section>
         
-    </section>
-    
     <section class="col-9 right-side" >
-
-         <app-solde class="solde"></app-solde>
-         <!-- <app-payment-list></app-payment-list> -->
-         <app-history></app-history>  
-
-
-    </section>
-    
+        <app-solde class="solde"></app-solde>
+        <div class="mt-5"> <app-history></app-history></div>
+        
+    </section> 
 </body>
