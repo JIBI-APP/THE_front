@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
-
 export interface Agent {
   lastName: string;
   firstName: string;
@@ -14,6 +13,8 @@ export interface Agent {
   phone: string;
   registrationNumber: string;
   patentNumber: string;
+  idTypeFile?: File;
+  registrationNumberFile?: File;
 }
 
 @Injectable({
@@ -90,7 +91,10 @@ export class AgentService {
 
   addAgent(agent: Agent): void {
     this.agents.push(agent);
+
   }
+
+
 
   editAgent(index: number, updatedAgent: Agent): void {
     this.agents[index] = updatedAgent;
