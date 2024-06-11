@@ -13,7 +13,7 @@ export interface Agence {
 })
 export class AgencyService {
 
-  private baseUrl = 'http://localhost:8089/api/BackOffice';
+  private baseUrl = 'https://jibi-api.onrender.com/api/BackOffice';
 
   constructor(private http: HttpClient) {}
 
