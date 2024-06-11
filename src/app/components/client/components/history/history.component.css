@@ -1,0 +1,33 @@
+/* transaction-history.component.css */
+.transaction-history-container {
+    background-color: #F8F8F8;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  h3 {
+    color: #6415FF;
+    margin-top: 0;
+  }
+  
+  .transaction-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  th, td {
+    padding: 8px;
+    border-bottom: 1px solid #D9D9D9;
+    color: #212529;
+  }
+  
+  th {
+    font-weight: bold;
+    background-color: #D9D9D9;
+  }
+  
+  tr:last-child td {
+    border-bottom: none;
+  }
+  

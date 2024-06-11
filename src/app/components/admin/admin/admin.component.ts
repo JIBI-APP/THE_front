@@ -10,15 +10,20 @@ import { AuthService } from '../../services/auth.service';
 export class AdminComponent {
   username: string = '';
   password: string = '';
+  errorMessage: string = '';
 
   constructor(private authService: AuthService, private router: Router) {}
 
   login() {
-    if (this.username === 'admin' && this.password === 'admin') {
-      this.authService.login('admin');
-      this.router.navigate(['/']);
-    } else {
-      alert('Invalid credentials');
-    }
+    this.authService.login(this.username, this.password).subscribe({
+      next: (response) => {
+        this.authService.setToken(response.token);
+        this.authService.setRole(response.role);
+        this.router.navigate(['/']); // Navigate to the home or appropriate route
+      },
+      error: (err) => {
+        this.errorMessage = 'Invalid credentials';
+      }
+    });
   }
 }

@@ -1,0 +1,24 @@
+<!-- <app-payment-list></app-payment-list> -->
+
+ <div class="transaction-history-container">
+    <h3>Transaction History</h3>
+    <table class="transaction-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Creditor</th>
+          <th>Amount</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transaction of transactions">
+          <td>{{ transaction.id }}</td>
+          <td>{{ transaction.cridetor }}</td>
+          <td>{{ transaction.amount | currency: 'DH' }}</td>
+          <td>{{ transaction.date }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

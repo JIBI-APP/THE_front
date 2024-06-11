@@ -1,5 +1,30 @@
-<div class="container mt-5">
-    <h2>Page Admine </h2>
-   
-  </div>
+<body class="container-8">
+
+  <section  class="menu ml-auto col-3 left-side">
+
+      <a routerLink="/agents">
+          <div class="menu-element">
+              <fa-icon icon="user-circle"></fa-icon>
+              <span>Agents List</span>
+          </div>
+      </a>
+
+      <a routerLink="/add-agent">
+          <div class="menu-element">
+              <fa-icon [icon]="['fas', 'user-plus']"></fa-icon>
+              <span>Add New Agent</span>
+          </div>
+      </a>
+
+      <!-- Add more navigation links as needed -->
+
+  </section>
   
+  <section class="col-9 right-side" >
+
+       <!-- Dashboard content will go here -->
+        <app-dashboard></app-dashboard>
+
+  </section>
+  
+</body>

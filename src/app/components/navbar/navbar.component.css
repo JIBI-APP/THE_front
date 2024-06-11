@@ -6,13 +6,13 @@
   }
 
   .btn-custom:hover {
-    border-color: rgb(231, 95, 118);       /* Bordure rose au survol */
+    border-color: #673DE6;       
     color: rgb(247, 244, 244);   
     background-color: #0b0c0c;          /* Couleur du texte noir au survol */
   }
 
   .btn-custom:active {
-    background-color: pink;   /* Fond rose au clic */
+    background-color: #673DE6;   /* Fond rose au clic */
     color: black;             /* Couleur du texte noir au clic */
   }
 

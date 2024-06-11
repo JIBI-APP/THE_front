@@ -30,7 +30,7 @@ export class OcrTestComponent {
 
   recognizeText() {
     if (this.selectedImage) {
-      this.ocrService.recognizeText(this.selectedImage as string, 'eng+fra')
+      this.ocrService.recognizeText(this.selectedImage as string, 'eng')
         .then((result: string) => {
           this.ocrResult = result;
           const dates = this.ocrService.extractDates(result);
@@ -49,7 +49,6 @@ export class OcrTestComponent {
           if (names.length >= 2) {
             this.firstName = names[0]; // first name
             this.lastName = names[1]; // last name
-            // this.idNumber = names[names.length - 1]; 
           }
           this.idNumber = id;
 
