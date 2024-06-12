@@ -32,9 +32,10 @@ const routes: Routes = [
   { path: 'clients', component: ClientListComponent },
   { path: 'add-agent', component: AddAgentComponent },
   {path : 'payment', component: BillSelectionComponent},
-  {path:'payment-form', component:PaymentFormComponent},
+  // {path:'payment-form', component:PaymentFormComponent},
   { path: 'agents', component: AgentListComponent },
   {path:'confirmepaye',component:ConfirmepayeComponent},
+  { path: 'payment-form/:creditorId/:serviceId', component: PaymentFormComponent },
   { path: 'agencies', component: AgencyListComponent}
   // { path: 'profil', component: ProfilComponent },
   // { path: 'depot', component: DepotComponent },

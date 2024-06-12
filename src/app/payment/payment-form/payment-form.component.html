@@ -1,37 +1,39 @@
+
 <div class="container py-5">
-    <h1>Paiement de Facture</h1>
-    <div class="row">
-      <div class="col-md-6">
-        <div class="card mb-4">
-          <img src="../../../assets/images/IAM-image.jpg" alt="IAM Image" class="card-img-top" >
-          <div class="card-body">
-            <h5 class="card-title">Maroc Telecom</h5>
-            <p>Recharge SIM</p>
-          </div>
+  <h1>Paiement de Facture</h1>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <img [src]="creditorImage" alt="Creditor Image" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">{{ selectedCreditor?.title }}</h5>
+          <h5 class="card-title">{{ selectedService?.name }}</h5>
+
+          <p>Selected Service Type: {{ selectedService?.type }}</p>
         </div>
       </div>
-      <div class="col-md-6">
-        <form (ngSubmit)="submitPayment()" #paymentForm="ngForm">
-          <div class="form-group">
-            <label for="firstName">Prénom</label>
-            <input type="text" class="form-control" id="firstName" required [(ngModel)]="firstName" name="firstName">
-          </div>
-          <div class="form-group">
-            <label for="lastName">Nom</label>
-            <input type="text" class="form-control" id="lastName" required [(ngModel)]="lastName" name="lastName">
-          </div>
-          <div class="form-group">
-            <label for="accountNumber">Numéro de Compte</label>
-            <input type="text" class="form-control" id="accountNumber" required [(ngModel)]="accountNumber" name="accountNumber">
-          </div>
-          <div class="form-group">
-            <label for="amount">Montant</label>
-            <input type="number" class="form-control" id="amount" required [(ngModel)]="amount" name="amount">
-          </div>
-          <button type="submit" class="btn btn-primary">Valider</button>
-          <button type="button" class="btn btn-secondary" (click)="cancelPayment()">Annuler</button>
-        </form>
-      </div>
+    </div>
+    <div class="col-md-6">
+      <form (ngSubmit)="submitPayment()" #paymentForm="ngForm">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" class="form-control" id="firstName" [(ngModel)]="firstName" name="firstName" required>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" class="form-control" id="lastName" [(ngModel)]="lastName" name="lastName" required>
+        </div>
+        <div class="form-group">
+          <label for="accountNumber">Account Number</label>
+          <input type="text" class="form-control" id="accountNumber" [(ngModel)]="accountNumber" name="accountNumber" required>
+        </div>
+        <div class="form-group">
+          <label for="amount">Amount</label>
+          <input type="number" class="form-control" id="amount" [(ngModel)]="amount" name="amount" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-secondary" (click)="cancelPayment()">Cancel</button>
+      </form>
     </div>
   </div>
-  
+</div>

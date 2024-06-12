@@ -4,7 +4,8 @@ import { Observable } from 'rxjs';
 export interface Agence {
   nom: string;
   description: string;
-  image: File;
+  image: any;
+  services: any;
 }
 
 @Injectable({

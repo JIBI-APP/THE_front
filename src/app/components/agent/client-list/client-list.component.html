@@ -1,7 +1,7 @@
 <div class="container mt-5">
     <h2>Liste des clients</h2>
     <button  mat-raised-button color="accent" class=" mb-3 bt" (click)="goBack()">Retour</button>
-    <button mat-raised-button color="accent" class=" mb-3 bt" (click)="goBack()">Add Client</button>
+    <button mat-raised-button color="accent" class=" mb-3 bt" (click)="AddClient()">Add Client</button>
     <table mat-table [dataSource]="clients" class="mat-elevation-z8">
       <ng-container matColumnDef="lastName">
         <th mat-header-cell *matHeaderCellDef>Nom</th>

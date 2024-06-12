@@ -39,4 +39,8 @@ export class ClientListComponent {
     // Implémentez la logique pour revenir à la page précédente
     this.router.navigate(['/']);
   }
+  AddClient() {
+    // Implémentez la logique pour revenir à la page précédente
+    this.router.navigate(['/add-client']);
+  }
 }
